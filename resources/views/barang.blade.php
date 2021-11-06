@@ -5,14 +5,24 @@
     <title>Document</title>
 </head>
 <body>
-    <h2>Tampilkan Data Post</h2>
-    @foreach ($barang as $data)
-        id_barang: {{$data['id_barang']}} <br>
-        nama : {{ $data['nama'] }} <br>
-        varian : {{ $data['varian'] }} <br>
-        harga_beli : {{ $data['harga_beli']}}<br>
-        harga_jual : {{ $data['harga_jual']}}<br>
-    <hr>
+<table border="1" align="center">
+    <h2 align="center">Tampilkan Data Post</h2>
+
+       <th> id_barang</th>
+       <th> nama </th>
+       <th> varian </th>
+       <th> harga_beli </th>
+       <th> harga_jual</th>
+    <tr>
+        @foreach ($brg as $data)
+
+        <td>{{$data['id_barang']}} </td>
+        <td>{{ $data['nama'] }}</td>
+        <td>{{ $data['varian'] }}</td>
+        <td> {{ $data['harga_beli']}}  </td>
+        <td>{{ $data['harga_jual']}} </td>
+    </tr>
     @endforeach
+    </table>
 </body>
 </html>

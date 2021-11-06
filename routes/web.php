@@ -1,5 +1,10 @@
 <?php
 
+use App\Http\Controllers\BarangController;
+use App\Http\Controllers\PembelianController;
+use App\Http\Controllers\PembeliController;
+use App\Http\Controllers\PesananController;
+use App\Http\Controllers\SuplierController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -11,11 +16,11 @@ use Illuminate\Support\Facades\Route;
 | routes are loaded by the RouteServiceProvider within a group which
 | contains the "web" middleware group. Now create something great!
 |
-*/
+ */
 
- Route::get('/', function () {
-     return view('welcome');
- });
+Route::get('/', function () {
+    return view('welcome');
+});
 
 // Route::get('hal2', function(){
 //     return "<h1>Selamat datang di halaman ke dua</h1>";
@@ -73,7 +78,6 @@ use Illuminate\Support\Facades\Route;
 //      return view('blog', compact('data'));
 //  });
 
-
 //   Route::get('absensi', function(){
 //        $data = [
 //            ['Nis' => 1, 'Nama' => 'Alya Nurlia',     'Jenis Kelamin' => 'Perempuan', 'Kelas' => 'XII RPL 3', 'Alamat' => 'Bandung'],
@@ -110,7 +114,6 @@ use Illuminate\Support\Facades\Route;
 //parameter optional
 //  Route::get('/input/{nama?/}', function($nama="Astri"){
 //      echo "Nama Saya : ".$nama."<br>";
-
 
 // });
 
@@ -161,7 +164,54 @@ use Illuminate\Support\Facades\Route;
 //      return view('test', compact('query'));
 //  });
 
-Route::get('barang', function(){
-    $barang = App\Models\barang::all();
-    return view('barang', compact('barang'));
-});
+//  Route::get('barang', function(){
+//      $barang = App\Models\barang::all();
+//      return view('barang', compact('barang'));
+//  });
+// //    Route::get('/barang', function(){
+// //        $barang = App\Models\barang::all();
+// //        return $barang;
+// //    });
+
+// Route::get('pembeli', function(){
+//     $pembeli = App\Models\Pembeli::all();
+//     return view('pembeli', compact('pembeli'));
+// });
+
+// Route::get('/pembeli', function(){
+//     $pembeli = App\Models\Pembeli::all();
+//     return $pembeli;
+// });
+
+// Route::get('pembelian', function(){
+//     $pembelian = App\Models\Pembelian::all();
+//     return view('pembelian', compact('pembelian'));
+// });
+//    Route::get('/pembelian', function(){
+//        $pembelian = App\Models\Pembelian::all();
+//        return $pembelian;
+//    });
+
+// Route::get('pesanan', function(){
+//     $pesanan = App\Models\Pesanan::all();
+//     return view('pesanan', compact('pesanan'));
+// });
+//    Route::get('/pesanan', function(){
+//        $pesanan = App\Models\Pesanan::all();
+//        return $pesanan;
+//    });
+
+// Route::get('suplier', function(){
+//     $suplier = App\Models\Suplier::all();
+//     return view('suplier', compact('suplier'));
+// });
+//    Route::get('/suplier', function(){
+//        $suplier = App\Models\Suplier::all();
+//        return $suplier;
+//    });
+
+Route::get('/barang', [BarangController::class, 'tampilkan']);
+Route::get('/suplier', [SuplierController::class, 'suplier']);
+Route::get('/pembeli', [PembeliController::class, 'beli']);
+Route::get('/pembelian', [PembelianController::class, 'pembelian']);
+Route::get('/pesanan', [PesananController::class, 'pesanan']);
